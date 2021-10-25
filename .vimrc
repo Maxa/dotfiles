@@ -4,6 +4,11 @@
 set list
 set listchars=tab:>.,eol:\\
 
+" Set TAB to spaces
+set expandtab
+set softtabstop=4
+set shiftwidth=4
+
 " Show line number, ruler
 set number
 set ruler

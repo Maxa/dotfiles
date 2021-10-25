@@ -3,7 +3,6 @@
 source .tmux.conf
 
 new -d -s console -n htop "htop"
-splitw -d -t console:0 "nload -i 13000 -o 13000 -u K -U M eth0"
-#neww -d -t console:1 -n cmus "cd $HOME/Music/ && cmus"
-neww -d -t console:1 -n root "su -"
+splitw -d -t console:0 "nload -i 100000 -o 100000 -u K -U M wlan0"
+neww -d -t console:1 -n root "sudo su -"
 neww

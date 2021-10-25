@@ -81,33 +81,6 @@ alias consolesize='printf "Columns: $COLUMNS, Lines: $LINES\n"'
 alias top10='print -l ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-# pacman specific aliases and functions
-
-alias Q='pacman -Q'
-alias R='sudo pacman -R'
-alias S='sudo pacman -S'
-alias U='sudo pacman -U'
-alias cower='cower -c -t $HOME/abs/'
-alias pkgdesc='pacman -Qei | egrep "Name|Required|Description" | less'
-pkgsize() { pacman -Si $@ | egrep "Name|Size" ; }
-
-absget() { abs $1 && cd $HOME/abs/${1#*/} && $EDITOR PKGBUILD ; }
-
-aurget() { cower -c -dd $1 -t $HOME/abs/ $2 && cd $HOME/abs/$1 && $EDITOR PKGBUILD && \
-	read -ks option'?Download, build, install or exit? [d|b|i] ' && \
-	case $option in
-		(d|D) printf "\nDownloading and extracting\n" && makepkg -o ;;
-		(b|B) printf "\nBuilding\n" && makepkg -scr ;;
-		(i|I) printf "\nInstalling\n" && makepkg -sicr ;;
-	esac
-}
-
-whose() { progfile=$(which $1) || return 1
-	pacman -Qo $progfile
-	pacman -Qi $(pacman -Qqo $progfile)
-}
-
 # more aliases
 
 source $HOME/.zshrc.aliases
-
