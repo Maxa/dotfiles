@@ -10,7 +10,7 @@ eval $(dircolors -b | sed -e 's/mh=00/mh=44;37/')
 
 export EDITOR="vim"
 export VISUAL="rview"
-export LESS="iJM"
+export LESS="iRJM"
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
 export LESS_TERMCAP_me=$'\E[0m'
